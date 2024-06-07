@@ -1,0 +1,80 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+<!-- Roomba 的 URDF -->
+    <param name="robot_description" textfile="$(find webots_ros)/protos/Create.urdf" />
+    <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+    <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+
+<!-- 控制器 -->
+    <node name="ccontroller" pkg="webots_ros" type="ccontroller" output="screen" />
+
+<!-- Carto -->
+    <node name="cartographer_node" pkg="cartographer_ros"
+            type="cartographer_node" args="
+                -configuration_directory $(find webots_ros)/carto_cfg
+                -configuration_basename cartographer.lua"
+            output="screen">
+        <remap from="scan" to="/Roomba/laser/laser_scan" />
+        <remap from="odom" to="/odom" />
+    </node>
+    
+<!-- 建图 -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+  		type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+<!-- AMCL -->
+    <node pkg="amcl" type="amcl" name="amcl" output="screen">
+        <param name="gui_publish_rate" value="10.0"/>
+        <param name="global_frame_id"  value="map"/>
+        <param name="base_frame_id"    value="base_link"/>
+        <param name="odom_frame_id"    value="odom"/>
+        <remap from="scan"             to="/Roomba/laser/laser_scan"/>
+        <param name="transform_tolerance" value="0.1"/>
+        <param name="min_particles"    value="150"/>
+        <param name="max_particles"    value="500"/>
+        <param name="updata_min_a"     value="0.5"/>
+        <param name="update_min_d"     value="0.2"/>
+        <param name="laser_min_range"  value="0.2"/>
+        <param name="laser_max_range"  value="12"/>
+        <param name="laser_max_beams"  value="30"/>
+        <param name="odom_model_type"  value="diff"/>
+    </node>
+
+<!-- 导航 -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find webots_ros)/nav_cfg/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find webots_ros)/nav_cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find webots_ros)/nav_cfg/local_costmap_params.yaml"  command="load" />
+        <rosparam file="$(find webots_ros)/nav_cfg/global_costmap_params.yaml" command="load" />
+        <remap from="scan" to="/Roomba/laser/laser_scan"/>
+        <param name="controller_frequency" value="30.0"/>
+        <param name="planner_frequency" value="1.0"/>
+        <!-- <param name="base_global_planner"  value="navfn/NavfnROS" /> -->
+        <param name="base_global_planner" value="sample_planner/SamplePlanner"/>
+        <param name="SamplePlanner/planner_name" value="rrt" />
+        <rosparam file="$(find webots_ros)/nav_cfg/sample_planner_params.yaml" command="load" />
+        <param name="base_local_planner"   value="teb_local_planner/TebLocalPlannerROS"/>
+        <rosparam file="$(find webots_ros)/nav_cfg/teb_local_planner_params.yaml" command="load" />
+    </node>
+    <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="screen">
+        <param name="robot_base_frame" value="base_link"/>
+        <param name="costmap_topic" value="move_base/global_costmap/costmap"/>
+        <param name="costmap_updates_topic" value="move_base/global_costmap/costmap_updates"/>
+        <param name="visualize" value="true"/>
+        <!--计算新边界并重新考虑目标的速率(Hz)-->
+        <!-- <param name="planner_frequency" value="0.1"/> -->
+        <param name="progress_timeout" value="30.0"/>
+        <!--用于加权边界,这个乘法参数影响边界权重的边界潜在分量（到边界的距离）-->
+        <param name="potential_scale" value="3.0"/>
+        <!--用于加权边界，该乘法参数影响前沿权重的前沿方向分量，此参数当前不执行任何操作，仅提供前向兼容性-->
+        <param name="orientation_scale" value="0.0"/>
+        <!--用于加权边界，乘法参数影响边界权重（边界大小）的边界增益分量-->
+        <param name="gain_scale" value="1.0"/>
+        <param name="transform_tolerance" value="0.3"/>
+        <!--将边界视为探索目标的最小值 米-->
+        <param name="min_frontier_size" value="0.75"/>
+    </node>
+<!-- rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      	args="-d $(find webots_ros)/rviz_cfg/explore.rviz" />
+</launch>

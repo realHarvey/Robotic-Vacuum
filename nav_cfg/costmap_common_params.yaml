@@ -1,0 +1,37 @@
+# -- 注意单位 -- 米 -- 
+robot_radius: 0.1675
+
+# tf转换时最大容忍的时间
+transform_tolerance: 1.0
+# 地图类型
+map_type: costmap
+
+always_send_full_costmap: true
+
+# 障碍地图层
+obstacle_layer:
+    enabled: true
+    obstacle_range: 2.5 # 机器人检测障碍物的最大范围
+    raytrace_range: 3.0 # 实时清除代价地图上的障碍物的最大范围
+    # true: each pixel has one of 3 states: lethal obstacle, free, or unknown. else only obstacle or free
+    track_unknown_space: true
+    combination_method: 1
+    # 观察来源
+    observation_sources: scan
+    scan: {
+      data_type: LaserScan,
+      topic: /Roomba/laser/laser_scan,
+      marking: true, # 是否用来标记障碍物
+      clearing: true, # 是否用来清除空闲空间
+    }
+
+# 膨胀地图层
+inflation_layer:
+    enabled: true
+    cost_scaling_factor: 5.0
+    inflation_radius: 0.1675
+
+# 静态地图层
+static_layer:
+    enabled: true
+    map_topic: "map"

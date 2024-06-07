@@ -1,0 +1,69 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+<!-- Roomba 的 URDF -->
+  <param name="robot_description" textfile="$(find webots_ros)/protos/Create.urdf" />
+  <node pkg="joint_state_publisher" name="joint_state_publisher" type="joint_state_publisher" />
+  <node pkg="robot_state_publisher" name="robot_state_publisher" type="robot_state_publisher" />
+
+<!-- 导入map -->
+  <arg name="map" default="map.yaml" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find webots_ros)/map/$(arg map)" />
+
+<!-- 控制器 -->
+  <node name="ccontroller" pkg="webots_ros" type="ccontroller" output="screen" />
+
+<!-- AMCL -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <param name="gui_publish_rate" value="10.0"/>
+    <param name="global_frame_id"  value="map"/>
+    <param name="base_frame_id"    value="base_link"/>
+    <param name="odom_frame_id"    value="odom"/>
+    <remap from="scan"             to="/Roomba/laser/laser_scan"/>
+    <param name="transform_tolerance" value="0.1"/>
+    <param name="min_particles"    value="150"/>
+    <param name="max_particles"    value="500"/>
+    <param name="updata_min_a"     value="0.5"/>
+    <param name="update_min_d"     value="0.2"/>
+    <param name="laser_min_range"  value="0.2"/>
+    <param name="laser_max_range"  value="12"/>
+    <param name="laser_max_beams"  value="30"/>
+    <param name="odom_model_type"  value="diff"/>
+  </node>
+
+<!-- 导航 -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find webots_ros)/nav_cfg/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find webots_ros)/nav_cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find webots_ros)/nav_cfg/local_costmap_params.yaml"  command="load" />
+    <rosparam file="$(find webots_ros)/nav_cfg/global_costmap_params.yaml" command="load" />
+    <remap from="scan" to="/Roomba/laser/laser_scan"/>
+    <param name="controller_frequency" value="10.0"/> <!-- 30 - 60 is better -->
+    <param name="planner_frequency" value="0.1"/>
+    <!-- 全局使用AStar/JPS/Informed-RRT* -->
+    <!-- <param name="base_global_planner"  value="BAstar_planner/BAstarPlannerROS" /> -->
+    <!-- <param name="base_global_planner" value="graph_planner/GraphPlanner"/>
+    <param name="GraphPlanner/planner_name" value="jps" />
+    <rosparam file="$(find webots_ros)/nav_cfg/sample_planner_params.yaml" command="load" /> -->
+    <param name="base_global_planner" value="sample_planner/SamplePlanner"/>
+    <param name="SamplePlanner/planner_name" value="informed_rrt" />
+    <rosparam file="$(find webots_ros)/nav_cfg/sample_planner_params.yaml" command="load" />
+    <!-- 局部使用Teb/DWA/MPC -->
+    <param name="base_local_planner"   value="teb_local_planner/TebLocalPlannerROS"/>
+    <rosparam file="$(find webots_ros)/nav_cfg/teb_local_planner_params.yaml" command="load" />
+    <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+    <rosparam file="$(find webots_ros)/nav_cfg/dwa_local_planner_params.yaml" command="load" /> -->
+    <!-- <param name="base_local_planner"   value="mpc_local_planner/MpcLocalPlannerROS"/>
+    <rosparam file="$(find webots_ros)/nav_cfg/mpc_planner_params.yaml" command="load" /> -->
+  </node>
+
+<!-- rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      	args="-d $(find webots_ros)/rviz_cfg/cartographer.rviz" />
+
+<!-- 调参器 -->
+  <!-- <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" /> -->
+
+<!-- tf tree -->
+  <!-- <node name="rqt_tf_tree" pkg="rqt_tf_tree" type="rqt_tf_tree" /> -->
+</launch>

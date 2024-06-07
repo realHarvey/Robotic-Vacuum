@@ -1,0 +1,466 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "../protos/Create.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/bathroom/protos/Toilet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/bathroom/protos/BathroomSink.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/bathroom/protos/Bathtube.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/bedroom/protos/Bed.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/bathroom/protos/WashingMachine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/chairs/protos/OfficeChair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/television/protos/Television.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/kitchen/fridge/protos/Fridge.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Desk.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/living_room_furniture/protos/Sofa.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/living_room_furniture/protos/Armchair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/kitchen/oven/protos/Oven.proto"
+
+WorldInfo {
+  FPS 30
+  optimalThreadCount 2
+}
+Viewpoint {
+  fieldOfView 0.785406
+  orientation -0.015895758116906907 0.9282489080126736 -0.37161981869535426 0.18742019050304903
+  position -1.641674299826347 2.0212270001143056 0.2255163695173334
+  follow "Roomba"
+  followType "Mounted Shot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 20 12
+  floorTileSize 2 2
+  wallHeight 2
+}
+Cabinet {
+  hidden position_6_0 1.2805935439729478e-05
+  hidden translation_7 -2.5483811524365145e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 1 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -0.52 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(6)"
+}
+Cabinet {
+  hidden position_6_0 1.2805935439706348e-05
+  hidden translation_7 -2.5483811524319117e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 0.9999999999999999 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation 0.28 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(7)"
+}
+Oven {
+  translation 4.39 4.7 0
+}
+Armchair {
+  translation 8 -5.45 0
+  rotation 0 0 1 1.5708
+}
+Sofa {
+  translation 6.3 -3.54 0
+}
+Sofa {
+  translation 7.84 -1.53 0
+  rotation 0 0 1 -1.5707953071795862
+  name "sofa(1)"
+}
+Desk {
+  translation -1.06 5.35 0
+  rotation 0 0 1 1.01503e-06
+}
+Fridge {
+  hidden position_0_0 -8.785428443133626e-05
+  hidden position_0_1 8.785430404733305e-05
+  hidden rotation_1 0 0 -1 8.78542843206222e-05
+  hidden rotation_2 0 0 1 8.785430453997347e-05
+  translation 4.49 3.43 0
+}
+Television {
+  translation 9.94 -3.5 0.95
+  rotation 0 0 1 3.14159
+}
+Cabinet {
+  hidden position_6_0 1.2805935440130494e-05
+  hidden translation_7 -2.548381152516317e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 1 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -8.78 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(2)"
+}
+Cabinet {
+  hidden position_6_0 1.2805935440169326e-05
+  hidden translation_7 -2.5483811525240443e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 0.9999999999999999 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895550705e-05
+  hidden translation_11 -1.8415312960960238e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -0.9999999999999999 1.0886988653013959e-05
+  translation -5.09 -4.77 0
+  rotation 0 0 1 -3.1415853071795863
+}
+Cabinet {
+  hidden position_6_0 1.2805935440177935e-05
+  hidden translation_7 -2.5483811525257574e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 1 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895550496e-05
+  hidden translation_11 -1.8415312960959884e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -5.09 -5.58 0
+  rotation 0 0 -1 3.1415853071795863
+  name "cabinet(3)"
+}
+Cabinet {
+  hidden position_6_0 1.2805935440164325e-05
+  hidden translation_7 -2.548381152523049e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 1 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -4.5 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(4)"
+}
+Cabinet {
+  hidden position_6_0 1.2805935439747993e-05
+  hidden translation_7 -2.548381152440199e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 0.9999999999999999 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -3.7 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(5)"
+}
+Cabinet {
+  hidden position_6_0 1.2805935440124778e-05
+  hidden translation_7 -2.5483811525151793e-06 -1.6317197593096466e-11 0
+  hidden rotation_7 0 0 0.9999999999999999 1.280595077436938e-05
+  hidden position_10_0 -1.0886971895551767e-05
+  hidden translation_11 -1.8415312960962033e-06 1.0024342467218617e-11 0
+  hidden rotation_11 0 0 -1 1.0886988653013959e-05
+  translation -9.59 -5.98 0
+  rotation 0 0 1 1.5708
+  name "cabinet(1)"
+}
+Bed {
+  translation -8.91 -3.02 0
+}
+Bed {
+  translation -3.83 -3.96 0
+  name "bed(1)"
+}
+Bed {
+  translation 0.15 -3.96 0
+  name "bed(2)"
+}
+Bathtube {
+  translation -9.03 5.5 0
+  rotation 0 0 1 -1.5707953071795862
+}
+BathroomSink {
+  translation -10 2.41 0.65
+}
+BathroomSink {
+  translation -10 3.05 0.65
+  name "sink(1)"
+}
+BathroomSink {
+  translation -4.94 3.05 0.65
+  name "sink(2)"
+}
+Wall {
+  translation -5 -3.5 0
+  name "wall(1)"
+  size 0.12 5 2
+}
+Wall {
+  translation -1.01 -3.99 0
+  name "wall(11)"
+  size 0.12 4 2
+}
+Wall {
+  translation 3.06 -3.99 0
+  name "wall(12)"
+  size 0.12 4 2
+}
+Wall {
+  translation -5 2.98 0
+  name "wall(2)"
+  size 0.12 6.06 2
+}
+Wall {
+  translation -3 2.98 0
+  name "wall(6)"
+  size 0.12 6.06 2
+}
+Wall {
+  translation 1.02 2.98 0
+  name "wall(8)"
+  size 0.12 6.06 2
+}
+Wall {
+  translation 4.06 4.48 0
+  name "wall(17)"
+  size 0.12 3.06 2
+}
+Wall {
+  translation -6.03 0 0
+  size 2 0.12 2
+}
+Wall {
+  translation -0.43 0 0
+  name "wall(9)"
+  size 3 0.12 2
+}
+Wall {
+  translation 5.01 2.99 0
+  name "wall(14)"
+  size 2 0.12 2
+}
+Wall {
+  translation 9 2.99 0
+  name "wall(16)"
+  size 2 0.12 2
+}
+Wall {
+  translation 2.02 2.99 0
+  name "wall(15)"
+  size 2 0.12 2
+}
+Wall {
+  translation -3.53 -1.97 0
+  name "wall(10)"
+  size 3 0.12 2
+}
+Wall {
+  translation 0.48 -1.97 0
+  name "wall(13)"
+  size 3.1 0.12 2
+}
+Wall {
+  translation -5.53 2 0
+  name "wall(5)"
+  size 3 0.12 2
+}
+Wall {
+  translation -4.53 4 0
+  name "wall(7)"
+  size 1 0.12 1
+}
+Wall {
+  translation -8.99 0 0
+  name "wall(4)"
+  size 2 0.12 2
+}
+Wall {
+  translation -8.99 2 0
+  name "wall(3)"
+  size 2 0.12 2
+}
+Create {
+  hidden position_0_0 1.5434118125273347e-06
+  hidden position_0_1 2.999351534592105e-06
+  hidden rotation_6 -0.11325644162027601 0.9935657619252168 0.00023486480376168752 1.9749542809718384e-05
+  hidden rotation_7 0.05691557041560938 0.9983789880815408 -0.00011832812071561084 3.9296291769832075e-05
+  hidden translation_11 1.1358090690194445e-07 2.843987838563322e-07 -6.646125587465163e-05
+  hidden rotation_11 0.8442481920732 -0.3789750863445432 -0.3789760864636176 1.739313999175418
+  hidden translation_12 -7.010503888515984e-08 3.260313774511303e-08 -6.636815405016566e-05
+  hidden rotation_12 -0.30254198559103274 0.6739659712638824 0.6739719701389422 -2.5540289974811206
+  translation -1.0000529661005155 2.0015425878574225 0.04413057372824365
+  rotation -0.0006323381314887191 -0.7445597798044856 -0.6675554916604187 0.0024986664820162673
+  name "Roomba"
+  controller "ros"
+  controllerArgs [
+    "--use-sim-time"
+    "--clock"
+    "--synchronize"
+    "--name=Roomba"
+  ]
+  customData "--name=Roomba"
+  synchronization FALSE
+  bodySlot [
+    Gyro {
+      locked TRUE
+    }
+    Accelerometer {
+      name "acc"
+    }
+    GPS {
+      locked TRUE
+    }
+    InertialUnit {
+      rotation -1 0 0 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.015
+          }
+        }
+      ]
+      name "imu"
+      locked TRUE
+    }
+    Lidar {
+      translation 0 0 0.071
+      rotation 2.6535899999906573e-06 0.9999999999964793 -1.2723699999955203e-14 3.14159
+      children [
+        Pose {
+          translation 0 0 -0.031
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                baseColorMap ImageTexture {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_base_color.jpg"
+                  ]
+                  filtering 5
+                }
+                roughnessMap ImageTexture {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_roughness.jpg"
+                  ]
+                  filtering 5
+                }
+                metalness 0
+                normalMapFactor 0.5
+                textureTransform TextureTransform {
+                  scale 10 10
+                }
+              }
+              geometry Mesh {
+                url [
+                  "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/slamtec/protos/meshes/rplidar_bottom.obj"
+                ]
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -0.012
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.11 0.11 0.11
+                baseColorMap ImageTexture {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_base_color.jpg"
+                  ]
+                  filtering 5
+                }
+                roughnessMap ImageTexture {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_roughness.jpg"
+                  ]
+                  filtering 5
+                }
+                metalness 0
+                normalMapFactor 0.5
+                textureTransform TextureTransform {
+                  scale 10 10
+                }
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.037
+              }
+            }
+          ]
+        }
+      ]
+      name "laser"
+      boundingObject Pose {
+        translation 0 0 -0.011
+        children [
+          Cylinder {
+            height 0.04
+            radius 0.038
+          }
+        ]
+      }
+      physics Physics {
+        density -1
+        mass 0.2
+      }
+      locked TRUE
+      horizontalResolution 400
+      fieldOfView 6.283184
+      numberOfLayers 1
+      near 0.05
+      minRange 0.2
+      maxRange 12
+      type "rotating"
+      noise 0.000833
+      resolution 0.01
+      defaultFrequency 12
+      rotatingHead Solid {
+        translation 0 0 -0.0314
+        rotation 0 0 -1 1.7592918649368579
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              baseColorMap ImageTexture {
+                url [
+                  "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_base_color.jpg"
+                ]
+                filtering 5
+              }
+              roughnessMap ImageTexture {
+                url [
+                  "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_roughness.jpg"
+                ]
+                filtering 5
+              }
+              metalness 0
+              normalMapFactor 0.5
+              textureTransform TextureTransform {
+                scale 10 10
+              }
+            }
+            geometry Mesh {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/slamtec/protos/meshes/rplidar_top.obj"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+Toilet {
+  translation -5.52 3.93 0
+  rotation 0 0 1 3.14159
+}
+Toilet {
+  translation -4.49 5 0
+  rotation 0 0 1 -5.307179586466759e-06
+  name "toilet(1)"
+}
+WashingMachine {
+  translation 1.47 5.51 0.53
+}
+OfficeChair {
+  hidden position_0_0 -0.00013131843122593523
+  hidden rotation_1 0 0 -1 0.0001313184307490816
+  translation 0.01949611879417097 5.340421979566634 -0.0014164237042080252
+  rotation 0.0007027396300207559 -3.272937741292382e-06 0.9999997530731195 -3.1361224295568157
+}

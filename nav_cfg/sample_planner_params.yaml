@@ -1,0 +1,31 @@
+SamplePlanner:
+  # random sample points
+  sample_points: 5000 #1000 for informed RRT*, 3000 for others
+  # max distance between sample points
+  sample_max_d: 50.0 # 20/m
+  # optimization radius
+  optimization_r: 50.0
+  # offset of transform from world(x,y) to grid map(x,y)
+  convert_offset: 0.0
+  # error tolerance
+  default_tolerance: 0.0
+  # whether outline the map or not
+  outline_map: true
+  # obstacle inflation factor
+  obstacle_factor: 0.1675
+  # whether publish expand zone or not
+  expand_zone: true
+
+GraphPlanner:
+  # offset of transform from world(x,y) to grid map(x,y)
+  convert_offset: 0.0
+  # error tolerance
+  default_tolerance: 0.0
+  # whether outline the map or not
+  outline_map: true
+  # obstacle inflation factor
+  obstacle_factor: 0.1675
+  # whether publish expand zone or not
+  expand_zone: true
+  # whether to store Voronoi map or not
+  voronoi_map: false

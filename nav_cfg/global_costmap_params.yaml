@@ -1,0 +1,26 @@
+# 全局代价地图
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 2.0
+  publish_frequency: 2.0
+  # 坐标系之间转换最大延时
+  transform_tolerance: 1.0
+  static_map: true
+
+  plugins:
+    - {name: static_layer,     type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,   type: "costmap_2d::VoxelLayer"}
+    - {name: inflation_layer,  type: "costmap_2d::InflationLayer"}
+
+  inflation_layer:
+    enabled: true
+    # exponential rate at which the obstacle cost drops off (default: 10)
+    cost_scaling_factor: 10.0
+    # 膨胀半径
+    inflation_radius: 0.1675
+
+
+
+
+

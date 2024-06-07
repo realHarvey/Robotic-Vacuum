@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<robot name="Create.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+<!-- 定义颜色 -->
+<material name="white"> <color rgba="1 1 1 1"/> </material>
+<material name="black"> <color rgba="0 0 0 1"/> </material>
+<material name="blue"> <color rgba="0 0 0.8 1"/> </material>
+<material name="orange"> <color rgba="1.0 0.4 0 1"/> </material>
+<!-- base_link -->
+<link name="base_link">
+    <visual>
+        <geometry> <cylinder length="0.07" radius="0.1675"/> </geometry>
+        <material name="white"/>
+    </visual>
+</link>
+<link name="cliff_left">
+</link>
+<joint name="base_link_cliff_left_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="cliff_left"/>
+  <origin xyz="0.07 0.15 0" rpy="-1.876967 1.570787 1.264616"/>
+</joint>
+<link name="cliff_front_left">
+</link>
+<joint name="base_link_cliff_front_left_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="cliff_front_left"/>
+  <origin xyz="0.15 0.04 0" rpy="-1.876967 1.570787 1.264616"/>
+</joint>
+<link name="cliff_front_right">
+</link>
+<joint name="base_link_cliff_front_right_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="cliff_front_right"/>
+  <origin xyz="0.15 -0.04 0" rpy="-1.876967 1.570787 1.264616"/>
+</joint>
+<link name="cliff_right">
+</link>
+<joint name="base_link_cliff_right_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="cliff_right"/>
+  <origin xyz="0.07 -0.15 0" rpy="-1.876967 1.570787 1.264616"/>
+</joint>
+<link name="led_step">
+</link>
+<joint name="base_link_led_step_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="led_step"/>
+  <origin xyz="0.0189 -0.0581 0.0349" rpy="0 0 0"/>
+</joint>
+<link name="led_play">
+</link>
+<joint name="base_link_led_play_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="led_play"/>
+  <origin xyz="0.0193 -0.0132 0.0349" rpy="0 0 0"/>
+</joint>
+<link name="led_on">
+</link>
+<joint name="base_link_led_on_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="led_on"/>
+  <origin xyz="0.0202 0.0617 0.0349" rpy="0 0 0"/>
+</joint>
+<link name="bumper_right">
+  <visual>
+    <origin xyz="-0.078042 0 -0.148208" rpy="0 0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="-0.078042 0 -0.148208" rpy="0 0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0 0 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.078042 0 -0.148208" rpy="0 -0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="0.078042 0 -0.148208" rpy="0 -0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+</link>
+<joint name="base_link_bumper_right_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="bumper_right"/>
+  <origin xyz="0 0 -0.00007" rpy="1.570792 0.000011 -2.297729"/>
+</joint>
+<link name="bumper_left">
+  <visual>
+    <origin xyz="-0.078042 0 -0.148208" rpy="0 0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="-0.078042 0 -0.148208" rpy="0 0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0 0 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.078042 0 -0.148208" rpy="0 -0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin xyz="0.078042 0 -0.148208" rpy="0 -0.523599 0"/>
+    <geometry>
+      <box size="0.082811 0.07 0.01"/>
+    </geometry>
+  </collision>
+</link>
+<joint name="base_link_bumper_left_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="bumper_left"/>
+  <origin xyz="0 0 -0.00007" rpy="1.570806 0.000006 -0.843867"/>
+</joint>
+<link name="receiver">
+</link>
+<joint name="base_link_receiver_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="receiver"/>
+  <origin xyz="0.152 0 0.037" rpy="0 0 0"/>
+</joint>
+<link name="front wheel">
+</link>
+<joint name="base_link_front wheel_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="front wheel"/>
+  <origin xyz="0.129 0 -0.035" rpy="0 0 0"/>
+</joint>
+<link name="rear wheel">
+</link>
+<joint name="base_link_rear wheel_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="rear wheel"/>
+  <origin xyz="-0.1315 0 -0.0305" rpy="0 0 0"/>
+</joint>
+<!-- Left Wheel -->
+<joint name="left wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="left wheel"/>
+    <axis xyz="0 1 -0.000002"/>
+    <limit effort="10" velocity="16.129"/>
+    <origin xyz="-0.0062 0 -0.014" rpy="0.000002 0.000041 0"/>
+</joint>
+<link name="left wheel">
+    <visual>
+        <origin xyz="0 0.1359 0" rpy="1.5708 0 0"/>
+        <geometry> <cylinder radius="0.031" length="0.026"/> </geometry>
+        <material name="black"/>
+    </visual>
+    <collision>
+        <origin xyz="0 0.1359 0" rpy="1.5708 0 0"/>
+        <geometry> <cylinder radius="0.031" length="0.026"/> </geometry>
+    </collision>
+</link>
+<!-- Right Wheel -->
+<joint name="right wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="right wheel"/>
+    <axis xyz="0 1 0.000002"/>
+    <limit effort="10" velocity="16.129"/>
+    <origin xyz="-0.0062 0 -0.014" rpy="-0.000002 0.000017 0"/>
+</joint>
+<link name="right wheel">
+    <visual>
+        <origin xyz="0 -0.1359 0" rpy="1.5708 0 0"/>
+        <geometry> <cylinder radius="0.031" length="0.026"/> </geometry>
+        <material name="black"/>
+    </visual>
+    <collision>
+        <origin xyz="0 -0.1359 0" rpy="1.5708 0 0"/>
+        <geometry> <cylinder radius="0.031" length="0.026"/> </geometry>
+    </collision>
+</link>
+<!-- Laser -->
+<link name="laser">
+    <visual>
+        <origin xyz="0 0.1359 0.015" rpy="0 0 0"/>
+        <geometry> <cylinder radius="0.038" length="0.04"/> </geometry>
+        <material name="blue"/>
+    </visual>
+    <collision>
+        <origin xyz="0 0.1359 0.015" rpy="0 0 0"/>
+        <geometry> <cylinder radius="0.038" length="0.04"/> </geometry>
+    </collision>
+</link>
+<joint name="base_link_laser_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="laser"/>
+  <origin xyz="0 -0.1359 0.071" rpy="3.141593 0.000003 3.141587"/>
+</joint>
+<link name="solid">
+</link>
+<joint name="laser_solid_joint" type="fixed">
+  <parent link="laser"/>
+  <child link="solid"/>
+  <origin xyz="0 0 -0.0314" rpy="0 0 1.709026"/>
+</joint>
+<link name="imu">
+</link>
+<joint name="base_link_imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu"/>
+  <origin xyz="0 0 0" rpy="0.000005 0 0"/>
+</joint>
+<link name="gps">
+</link>
+<joint name="base_link_gps_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="gps"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+<link name="acc">
+</link>
+<joint name="base_link_acc_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="acc"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+<link name="gyro">
+</link>
+<joint name="base_link_gyro_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="gyro"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+</robot>
